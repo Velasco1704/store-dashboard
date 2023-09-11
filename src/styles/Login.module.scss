@@ -1,0 +1,14 @@
+.login__container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .login__h1 {
+    font-size: 3em;
+    font-weight: bold;
+  }
+}

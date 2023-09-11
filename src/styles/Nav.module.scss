@@ -1,0 +1,48 @@
+@import './variables';
+
+.nav__header {
+  padding: .5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav {
+    .nav__link {
+      .nav__img {
+        border-radius: 50%;
+        height: 5rem;
+        border: .125rem solid transparent;
+        transition: .125s ease-out;
+
+        &:hover {
+          border-color: $yellow;
+        }
+      }
+    }
+  }
+
+  .nav__logOut {
+    cursor: pointer;
+    color: $white;
+    background: $dark-red;
+    padding: .8rem;
+    border-radius: $border-radius;
+    transition: .125s ease-out;
+
+    &:hover {
+      background: $light-red;
+    }
+  }
+}
+
+@media (width >=768px) {
+  .nav__header {
+    .nav {
+      .nav__link {
+        .nav__img {
+          height: 6rem;
+        }
+      }
+    }
+  }
+}

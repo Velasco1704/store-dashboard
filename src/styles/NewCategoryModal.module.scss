@@ -1,0 +1,53 @@
+@import './variables';
+
+.newCategoryModal__form {
+  margin: .5rem;
+  position: relative;
+  background: $white;
+  width: 22rem;
+  height: 12rem;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .newCategoryModal__form__input {
+    width: 15rem;
+    outline: none;
+    background: $grey;
+    padding: .5rem 1rem;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+  }
+
+  .newCategoryModal__form__container__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+    .newCategoryModal__form__buttons {
+      cursor: pointer;
+      border-radius: $border-radius;
+      width: 15rem;
+      padding: .5rem 1rem;
+      transition: .125s ease-in-out;
+    }
+
+    .newCategoryModal__form__save__button {
+      background: $green;
+
+      &:hover {
+        background: $light-green;
+      }
+    }
+
+    .newCategoryModal__form__close__button {
+      background: $red;
+
+      &:hover {
+        background: $light-red;
+      }
+    }
+  }
+}

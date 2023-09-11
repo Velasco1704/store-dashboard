@@ -1,0 +1,75 @@
+@import './variables';
+
+.categoryCard__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+
+  .categoryCard__form {
+    width: 14rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $grey;
+    border-radius: $border-radius;
+    padding: .7rem;
+
+    .categoryCard__form__input {
+      width: 90%;
+      outline: none;
+    }
+
+    .categoryCard__form__save__button {
+      cursor: pointer;
+      width: 10%;
+      font-size: 1.4em;
+      transition: .125s ease-in-out;
+
+      &:hover {
+        color: $light-blue;
+      }
+    }
+  }
+
+  .categoryCard__buttons {
+    width: 14rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .categoryCard__button {
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      padding: .3rem 0;
+      border-radius: $border-radius;
+      transition: .125s ease-in-out;
+    }
+
+    .categoryCard__cancel__button {
+      background: $grey;
+
+      &:hover {
+        background: $light-red;
+      }
+    }
+
+    .categoryCard__edit__button {
+      background: $blue;
+
+      &:hover {
+        background: $light-blue;
+      }
+    }
+
+    .categoryCard__delete__button {
+      background: $red;
+
+      &:hover {
+        background: $light-red;
+      }
+    }
+  }
+}

@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
+//Variables
+$border-radius: .4rem;
+$box-shadow: 4px 4px 5px rgba(0, 0, 0, .5);
+
 // Colors
 $white: #fff;
+$grey: #ececec;
+$transparent-grey: #b3b3b34d;
 $black: #000;
-$green: #7CBD1E;
-$light-green: #B5FE83;
-$yellow: #FFE61B;
+$blue:#3e3eff;
+$light-blue: #00a6ff;
+$red: #b90000;
+$dark-red: #a40000;
+$light-red: #ff0000;
+$green: #05a100;
+$light-green: #62f400;
+$yellow: #c8ff00;
+$light-yellow: #c4ff3b;
 
 //fonts
 $principal-font: 'Raleway',

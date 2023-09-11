@@ -1,20 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import type { PayloadAction } from "@reduxjs/toolkit";
+import { InitialStateTypes } from "src/interfaces/initialState.interface";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface userSlice {
-  value: number;
-}
-
-const initialState: userSlice = {
-  value: 0,
+const initialState: InitialStateTypes = {
+  token: null,
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const userSlice = createSlice({
+  name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setToken: (state, actions: PayloadAction<string>) => {
+      state.token = actions.payload;
+    },
+    deleteToken: (state) => {
+      state.token = null;
+    },
+  },
 });
 
-// export const {} = counterSlice.actions;
-
-export default counterSlice.reducer;
+export const { setToken, deleteToken } = userSlice.actions;
+export default userSlice.reducer;

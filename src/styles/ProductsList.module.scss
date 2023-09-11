@@ -1,0 +1,110 @@
+@import './variables';
+
+.productsList__section {
+  padding: .3rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: .5rem;
+
+  .productsList__product {
+    border-radius: $border-radius;
+    background: $grey;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .125s ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    .productsList__product__img {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+    }
+
+    .productsList__product__info {
+      font-size: .9em;
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+
+      .productsList__product__info__p {
+        .productsList__product__info__span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .productsList__product__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+
+      .productsList__product__button {
+        cursor: pointer;
+        border-radius: $border-radius;
+        padding: .3rem .5rem;
+        transition: .125s ease-in-out;
+      }
+
+      .productsList__product____edit__button {
+        background: $blue;
+
+        &:hover {
+          background: $light-blue;
+        }
+      }
+
+      .productsList__product__delete__button {
+        background: $red;
+
+        &:hover {
+          background: $light-red;
+        }
+      }
+    }
+  }
+}
+
+@media (width >=768px) {
+  .productsList__section {
+    margin: 0 auto;
+    padding: 1rem;
+
+    .productsList__product {
+      padding: 1rem;
+
+      .productsList__product__img {
+        width: 7rem;
+        height: 7rem;
+      }
+
+      .productsList__product__info {
+        font-size: 1.1em;
+      }
+
+      .productsList__product__buttons {
+        flex-direction: row;
+
+        .productsList__product__button {
+          padding: .5rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width >=1024px) {
+  .productsList__section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >=1440px) {
+  .productsList__section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,43 @@
+@import './variables';
+
+.categoriesList__container {
+  max-height: 28rem;
+  position: relative;
+  margin: 1rem;
+  padding: 4rem .3rem;
+  background: $white;
+  border-radius: $border-radius;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16em), 1fr));
+  gap: 3rem;
+
+  &::-webkit-scrollbar {
+    width: .4rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $light-green;
+    border-radius: $border-radius;
+  }
+
+  .categoriesList__container__cross__button {
+    cursor: pointer;
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.8em;
+    top: .5rem;
+    left: .5rem;
+    transition: .125s ease-in-out;
+
+    &:hover {
+      color: $light-red;
+    }
+  }
+}
+
+@media (width >=768px) {
+  .categoriesList__container {
+    width: 40rem;
+  }
+}
