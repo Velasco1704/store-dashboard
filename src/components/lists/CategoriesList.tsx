@@ -1,8 +1,8 @@
 import { Category } from "@interfaces/category.interface";
-import { CategoryCard } from "./CategoryCard";
+import { CategoryCard } from "../CategoryCard";
 import { RxCross1 } from "react-icons/rx";
-import { BackgroundModal } from "../Layout/BackgroundModal";
-import styles from "@styles/CategoriesList.module.scss";
+import { BackgroundModal } from "../../Layout/BackgroundModal";
+import styles from "@styles/lists/CategoriesList.module.scss";
 
 export const CategoriesList = ({
   categoriesData,

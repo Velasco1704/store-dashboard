@@ -19,6 +19,18 @@ export const Nav = () => {
         <Link className={styles.nav__link} to="/">
           <img className={styles.nav__img} src={logo} alt="logo" />
         </Link>
+        <Link
+          className={`${styles.nav__link} ${styles.nav__orders__link}`}
+          to="/"
+        >
+          Dashboard
+        </Link>
+        <Link
+          className={`${styles.nav__link} ${styles.nav__orders__link}`}
+          to="/orders"
+        >
+          Orders
+        </Link>
       </nav>
       <button className={styles.nav__logOut} onClick={handleLogOut}>
         Log Out

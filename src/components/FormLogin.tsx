@@ -5,7 +5,7 @@ import { setToken } from "@features/userSlice";
 import { useNavigate } from "react-router-dom";
 import { BiSolidErrorAlt } from "react-icons/bi";
 import { Loader } from "./Loader";
-import styles from "@styles/FormLogin.module.scss";
+import styles from "@styles/forms/FormLogin.module.scss";
 
 export const FormLogin = () => {
   const dispatch = useDispatch();

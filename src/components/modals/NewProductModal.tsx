@@ -6,7 +6,7 @@ import { BiSolidErrorAlt } from "react-icons/bi";
 import defaultImage from "@assets/default-image.jpg";
 import { Loader } from "@components/Loader";
 import { BackgroundModal } from "@Layout/BackgroundModal";
-import styles from "@styles/FormProduct.module.scss";
+import styles from "@styles/forms/FormProduct.module.scss";
 
 export const NewProductModal = ({
   categoriesData,
@@ -17,16 +17,19 @@ export const NewProductModal = ({
   modalState: { category: boolean; product: boolean };
   setModalState: (value: { category: boolean; product: boolean }) => void;
 }) => {
+  const [error, setError] = useState(false);
   const [newProduct, { isError, isSuccess, isLoading }] =
     useCreateProductMutation();
   const [formState, setFormState] = useState<{
     name: string;
     price: number;
+    stock: number;
     categoryId: string;
     image: FileList | string;
   }>({
     name: "",
     price: 0,
+    stock: 0,
     categoryId:
       categoriesData
         ?.filter((category) => category.name === "General")[0]
@@ -36,12 +39,18 @@ export const NewProductModal = ({
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", formState.name);
-    formData.append("price", formState.price.toString());
-    formData.append("categoryId", formState.categoryId);
-    formData.append("image", formState.image[0]);
-    newProduct(formData);
+
+    if (formState.price <= 0 || formState.stock <= 0) {
+      setError(true);
+    } else {
+      const formData = new FormData();
+      formData.append("name", formState.name);
+      formData.append("price", formState.price.toString());
+      formData.append("stock", formState.stock.toString());
+      formData.append("categoryId", formState.categoryId);
+      formData.append("image", formState.image[0]);
+      newProduct(formData);
+    }
   };
 
   useEffect(() => {
@@ -71,6 +80,17 @@ export const NewProductModal = ({
           type="number"
           name="price"
           placeholder="Price"
+        />
+        <input
+          className={styles.formProduct__form__input}
+          onChange={({ target }) =>
+            setFormState({ ...formState, stock: +target.value })
+          }
+          required
+          autoComplete="off"
+          type="number"
+          name="stock"
+          placeholder="Stock"
         />
         <div className={styles.formProduct__form__select__container}>
           <span className={styles.formProduct__form__icon}>
@@ -145,16 +165,17 @@ export const NewProductModal = ({
             cancel
           </button>
         </div>
-        {isError && (
-          <div className={styles.formProduct__form__error}>
-            <span className={styles.formProduct__form__error__span}>
-              <BiSolidErrorAlt />
-            </span>
-            <p className={styles.formProduct__form__error__p}>
-              Invalid Credentials
-            </p>
-          </div>
-        )}
+        {isError ||
+          (error && (
+            <div className={styles.formProduct__form__error}>
+              <span className={styles.formProduct__form__error__span}>
+                <BiSolidErrorAlt />
+              </span>
+              <p className={styles.formProduct__form__error__p}>
+                Invalid Credentials
+              </p>
+            </div>
+          ))}
       </form>
     </BackgroundModal>
   );

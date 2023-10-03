@@ -1,0 +1,115 @@
+@import '../variables';
+
+.ordersList__container__loader {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.ordersList__not__orders__container {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .ordersList__not__orders__container__h1 {
+    font-size: 1.6em;
+
+    span {
+      color: $green;
+      font-weight: bold;
+    }
+  }
+}
+
+.ordersList__container {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+
+  .ordersList__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background: $grey;
+    padding: 1rem;
+    border-radius: $border-radius;
+
+    .ordersList__container__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .5rem;
+
+      .ordersList__button {
+        width: 100%;
+        cursor: pointer;
+        padding: .5rem 0;
+        border-radius: $border-radius;
+        transition: $button-transition;
+      }
+
+      .ordersList__sent__button {
+        background: $green;
+
+        &:hover {
+          background: $light-green;
+        }
+      }
+
+      .ordersList__not__sent__button,
+      .ordersList__delete__button {
+        background: $red;
+
+        &:hover {
+          background: $light-red;
+        }
+      }
+    }
+
+    .ordersList__container__alert__error {
+      font-size: .9em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .5rem 0;
+      border: .125rem solid $red;
+      border-radius: $border-radius;
+      color: $red;
+
+      .ordersList__error__span {}
+
+      .ordersList__alert__error {
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media (width >=768px) {
+  .ordersList__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >=1024px) {
+  .ordersList__not__orders__container {
+    .ordersList__not__orders__container__h1 {
+      font-size: 2em;
+    }
+  }
+
+  .ordersList__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >=1440px) {
+  .ordersList__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

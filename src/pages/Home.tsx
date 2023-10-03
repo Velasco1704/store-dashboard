@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useGetCategoriesQuery, useGetProductsQuery } from "@api/apiSlice";
 import { Nav } from "@components/Nav";
-import { ProductsList } from "@components/ProductsList";
+import { ProductsList } from "@components/lists/ProductsList";
 import { StoreDetails } from "@components/StoreDetails";
 import { NewCategoryModal } from "@components/modals/NewCategoryModal";
 import { NewProductModal } from "@components/modals/NewProductModal";
-import { CategoriesList } from "@components/CategoriesList";
+import { CategoriesList } from "@components/lists/CategoriesList";
 import { Loader } from "@components/Loader";
 import styles from "@styles/Home.module.scss";
 

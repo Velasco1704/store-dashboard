@@ -56,7 +56,7 @@ export const CategoryCard = ({
       <div className={styles.categoryCard__buttons}>
         <button
           className={`${styles.categoryCard__button} ${
-            editState === false
+            !editState
               ? styles.categoryCard__edit__button
               : styles.categoryCard__cancel__button
           }`}

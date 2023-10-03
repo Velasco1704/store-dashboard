@@ -2,11 +2,12 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Category } from "@interfaces/category.interface";
 import { Product } from "@interfaces/product.interface";
 import { User } from "@interfaces/user.interface";
+import { Order } from "@interfaces/order.interface";
 
 export const appSlice = createApi({
   reducerPath: "apiSlice",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3003" }),
-  tagTypes: ["Products", "Categories"],
+  tagTypes: ["Products", "Categories", "Orders"],
   endpoints: (builder) => ({
     //Auth
     login: builder.mutation({
@@ -75,10 +76,34 @@ export const appSlice = createApi({
     }),
     deleteProduct: builder.mutation({
       query: (id) => ({
-        url: `/product/${id}`,
+        url: `/delete-product/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Products"],
+    }),
+
+    //Orders
+    getOrders: builder.query<Order[], undefined>({
+      query: () => "/orders",
+      transformResponse: (response: { result: Order[] }) => response.result,
+      providesTags: ["Orders", "Products", "Categories"],
+    }),
+    updateOrder: builder.mutation({
+      query: (payload: { id: string; sent: boolean }) => ({
+        url: `/update-order/${payload.id}`,
+        method: "PUT",
+        body: {
+          sent: payload.sent,
+        },
+      }),
+      invalidatesTags: ["Orders"],
+    }),
+    deleteOrderNotPaid: builder.mutation({
+      query: (orderId: string) => ({
+        url: `/delete-order-not-paid/${orderId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Orders"],
     }),
   }),
 });
@@ -96,4 +121,8 @@ export const {
   useCreateProductMutation,
   useUpdateProductMutation,
   useDeleteProductMutation,
+  //Order
+  useGetOrdersQuery,
+  useUpdateOrderMutation,
+  useDeleteOrderNotPaidMutation,
 } = appSlice;

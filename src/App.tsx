@@ -1,23 +1,24 @@
-import { Home } from "@pages/Home";
-import { Login } from "@pages/Login";
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { NotFound } from "@pages/NotFound";
+import { routes } from "@pages/routes";
 
 export const App = () => {
   return (
     <div>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/*" element={<NotFound />} />
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            element={
+              route.protected ? (
+                <ProtectedRoute>{route.element}</ProtectedRoute>
+              ) : (
+                route.element
+              )
+            }
+          />
+        ))}
       </Routes>
     </div>
   );

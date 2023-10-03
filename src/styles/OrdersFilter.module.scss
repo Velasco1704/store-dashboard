@@ -1,0 +1,37 @@
+@import './variables';
+
+.ordersFilter {
+  display: flex;
+  justify-content: right;
+  padding: 0 1rem;
+
+  .ordersFilter__container__select {
+    width: 12rem;
+    cursor: pointer;
+    position: relative;
+    background: $grey;
+    padding: .5rem 1rem;
+    border-radius: 10rem;
+
+    .ordersFilter__icon {
+      font-size: 1.6em;
+      position: absolute;
+      top: .7rem;
+      right: .8rem;
+    }
+
+    .ordersFilter__select {
+      cursor: pointer;
+      width: 100%;
+      outline: none;
+      appearance: none;
+      padding: .3rem 0;
+
+      .ordersFilter__option {
+        background: $grey;
+        color: $black;
+        font-size: 1.1em;
+      }
+    }
+  }
+}

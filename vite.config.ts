@@ -10,6 +10,7 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./src/assets/"),
       "@components": path.resolve(__dirname, "./src/components/"),
       "@features": path.resolve(__dirname, "./src/features/"),
+      "@hooks": path.resolve(__dirname, "./src/hooks/"),
       "@interfaces": path.resolve(__dirname, "./src/interfaces/"),
       "@Layout": path.resolve(__dirname, "./src/Layout/"),
       "@pages": path.resolve(__dirname, "./src/pages/"),

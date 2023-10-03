@@ -1,4 +1,20 @@
-@import './variables';
+@import '../variables';
+
+.productsList__not__products__container {
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .productsList__not__products__container__h1 {
+    font-size: 1.3em;
+
+    span {
+      color: $green;
+      font-weight: bold;
+    }
+  }
+}
 
 .productsList__section {
   padding: .3rem;
@@ -98,6 +114,12 @@
 }
 
 @media (width >=1024px) {
+  .productsList__not__products__container {
+    .productsList__not__products__container__h1 {
+      font-size: 2em;
+    }
+  }
+
   .productsList__section {
     grid-template-columns: repeat(2, 1fr);
   }

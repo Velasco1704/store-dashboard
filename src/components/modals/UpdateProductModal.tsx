@@ -4,7 +4,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { BiSolidErrorAlt } from "react-icons/bi";
 import { Loader } from "@components/Loader";
 import { BackgroundModal } from "@Layout/BackgroundModal";
-import styles from "@styles/FormProduct.module.scss";
+import styles from "@styles/forms/FormProduct.module.scss";
 
 export const UpdateProductModal = ({
   productValues,
@@ -15,6 +15,7 @@ export const UpdateProductModal = ({
     id: string;
     name: string;
     price: number;
+    stock: number;
     categoryId: string;
     image: FileList | string;
   };
@@ -25,11 +26,13 @@ export const UpdateProductModal = ({
   const [formState, setFormState] = useState<{
     name: string;
     price: number;
+    stock: number;
     categoryId: string;
     image: FileList | string;
   }>({
     name: productValues.name,
     price: productValues.price,
+    stock: productValues.stock,
     categoryId: productValues.categoryId,
     image: productValues.image,
   });
@@ -39,6 +42,7 @@ export const UpdateProductModal = ({
     const formData = new FormData();
     formData.append("name", formState.name);
     formData.append("price", formState.price.toString());
+    formData.append("stock", formState.stock.toString());
     formData.append("categoryId", formState.categoryId);
 
     if (typeof formState.image !== "string")
@@ -75,6 +79,17 @@ export const UpdateProductModal = ({
           autoComplete="off"
           name="price"
           placeholder="price"
+        />
+        <input
+          className={styles.formProduct__form__input}
+          onChange={({ target }) =>
+            setFormState({ ...formState, stock: +target.value })
+          }
+          value={formState.stock}
+          type="number"
+          autoComplete="off"
+          name="stock"
+          placeholder="Stock"
         />
         <div className={styles.formProduct__form__select__container}>
           <span className={styles.formProduct__form__icon}>

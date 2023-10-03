@@ -28,6 +28,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@features/*": ["src/features/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@Layout/*": ["src/Layout/*"],
       "@pages/*": ["src/pages/*"],

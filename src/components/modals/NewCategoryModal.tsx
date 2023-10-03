@@ -14,7 +14,7 @@ export const NewCategoryModal = ({
   const [categoryName, setCategoryName] = useState("");
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    newCategory(categoryName).then((res) => console.log(res));
+    newCategory(categoryName);
   };
 
   useEffect(() => {
