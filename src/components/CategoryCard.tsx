@@ -29,7 +29,6 @@ export const CategoryCard = ({
   useEffect(() => {
     isSuccess && setEditState(false);
   }, [isSuccess, setEditState]);
-
   return (
     <div className={styles.categoryCard__container}>
       <form className={styles.categoryCard__form} onSubmit={handleSubmit}>

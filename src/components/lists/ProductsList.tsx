@@ -62,7 +62,10 @@ export const ProductsList = ({
               <span className={styles.productsList__product__info__span}>
                 Price:
               </span>{" "}
-              ${item.price}
+              {item.price.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })}
             </p>
             <p className={styles.productsList__product__info__p}>
               <span className={styles.productsList__product__info__span}>

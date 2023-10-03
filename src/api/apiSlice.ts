@@ -6,7 +6,9 @@ import { Order } from "@interfaces/order.interface";
 
 export const appSlice = createApi({
   reducerPath: "apiSlice",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3003" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://store-server-iii2.onrender.com",
+  }),
   tagTypes: ["Products", "Categories", "Orders"],
   endpoints: (builder) => ({
     //Auth

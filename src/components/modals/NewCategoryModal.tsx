@@ -2,6 +2,7 @@ import { useCreateCategoryMutation } from "@api/apiSlice";
 import { useEffect, useState } from "react";
 import { BackgroundModal } from "@Layout/BackgroundModal";
 import styles from "@styles/NewCategoryModal.module.scss";
+import { Loader } from "@components/Loader";
 
 export const NewCategoryModal = ({
   modalState,
@@ -10,7 +11,7 @@ export const NewCategoryModal = ({
   modalState: { category: boolean; product: boolean };
   setModalState: (value: { category: boolean; product: boolean }) => void;
 }) => {
-  const [newCategory, { isSuccess }] = useCreateCategoryMutation();
+  const [newCategory, { isSuccess, isLoading }] = useCreateCategoryMutation();
   const [categoryName, setCategoryName] = useState("");
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ export const NewCategoryModal = ({
             className={`${styles.newCategoryModal__form__buttons} ${styles.newCategoryModal__form__save__button}`}
             type="submit"
           >
-            Save
+            {!isLoading ? "Save" : <Loader />}
           </button>
           <button
             className={`${styles.newCategoryModal__form__buttons} ${styles.newCategoryModal__form__close__button}`}
