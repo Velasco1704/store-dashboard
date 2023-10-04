@@ -39,7 +39,7 @@ export const FormLogin = () => {
             className={styles.form__input}
             autoComplete="off"
             type="text"
-            placeholder="Username"
+            placeholder="danielvelasco"
             name="username"
             id="username"
             onChange={handleChange}
@@ -48,7 +48,7 @@ export const FormLogin = () => {
             className={styles.form__input}
             type="password"
             autoComplete="off"
-            placeholder="******"
+            placeholder="daniel1234"
             name="password"
             id="password"
             onChange={handleChange}
